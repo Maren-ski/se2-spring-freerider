@@ -1,6 +1,6 @@
 package de.freerider.model;
 
-import sun.tools.tree.NewArrayExpression;
+import org.springframework.stereotype.Component;
 
 public class Customer {
     enum Status {
@@ -10,11 +10,11 @@ public class Customer {
         Suspended,
         Deleted
     }
-    String id = null;
-    String lastName;
-    String firstName;
-    String contact;
-    Status status = Status.New;
+    private String id = null;
+    private String lastName;
+    private String firstName;
+    private String contact;
+    private Status status = Status.New;
 
     public Customer(String lastName, String firstName, String contact) {
         this.lastName = lastName;
@@ -61,6 +61,4 @@ public class Customer {
     public void setStatus(Status status) {
         this.status = status;
     }
-
-
 }
