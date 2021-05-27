@@ -99,14 +99,10 @@ class CustomerRepository implements CrudRepository<Customer, String> {
 	}
 
 	@Override
-	public void deleteAllById(Iterable<? extends String> strings) {
-		for(Customer customer : customers) {
-			for(String id : strings) {
-				if(customer.getId().equals(id)) {
-					customers.remove(customer);
-				}
+	public void deleteAllById(Iterable<? extends String> ids) {
+			for(String id : ids) {
+				findById(id).ifPresent(c2 -> customers.remove(c2));
 			}
-		}
 	}
 
 	@Override

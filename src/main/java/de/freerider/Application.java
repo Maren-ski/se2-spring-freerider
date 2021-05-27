@@ -110,17 +110,17 @@ public class Application {
 
 		//TODO: concurrent modification exception ???
 		//Delete multiple customers by id
-		/*String cemId = cem.getId();
+		String cemId = cem.getId();
 		String miriamId = miriam.getId();
 		ArrayList<String> ids1 = new ArrayList<>();
-		ids1.add(berndId);
-		ids1.add(avaId);
+		ids1.add(cemId);
+		ids1.add(miriamId);
 		customerManager.deleteAllById(ids1);
 		for (Customer customer : allCustomers) {
 			System.out.println();
 			System.out.println("Cem und Miriam sind gelöscht: ");
 			System.out.println(customer.getId() + " : " + customer.getFirstName());
-		}*/
+		}
 
 		//Delete all customers from repository
 		customerManager.deleteAll();
