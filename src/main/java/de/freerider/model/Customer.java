@@ -3,7 +3,7 @@ package de.freerider.model;
 import org.springframework.stereotype.Component;
 
 public class Customer {
-    enum Status {
+    public enum Status {
         New,
         InRegistration,
         Active,
@@ -11,15 +11,15 @@ public class Customer {
         Deleted
     }
     private String id = null;
-    private String lastName;
-    private String firstName;
-    private String contact;
+    private String lastName = "";
+    private String firstName = "";
+    private String contact = "";
     private Status status = Status.New;
 
     public Customer(String lastName, String firstName, String contact) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.contact = contact;
+        setLastName(lastName);
+        setFirstName(firstName);
+        setContact(contact);
     }
 
     public String getId() {
@@ -43,19 +43,39 @@ public class Customer {
     }
 
     public void setId(String id) {
-        this.id = id;
+        if(this.id == null) {
+            this.id = id;
+        }
+        else if(id == null) {
+            this.id = null;
+        }
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if(lastName == null) {
+            this.lastName = "";
+        }
+        else {
+            this.lastName = lastName;
+        }
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if(firstName == null) {
+            this.firstName = "";
+        }
+        else {
+            this.firstName = firstName;
+        }
     }
 
     public void setContact(String contact) {
-        this.contact = contact;
+        if(contact == null) {
+            this.contact = "";
+        }
+        else {
+            this.contact = contact;
+        }
     }
 
     public void setStatus(Status status) {
