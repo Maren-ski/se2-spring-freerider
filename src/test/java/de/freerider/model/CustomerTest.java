@@ -1,4 +1,4 @@
-package de.freerider.repository;
+package de.freerider.model;
 
 import de.freerider.model.Customer;
 import org.junit.jupiter.api.Test;

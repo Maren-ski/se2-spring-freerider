@@ -42,21 +42,21 @@ public class Application {
 
 		//Count number of customers in repository
 		long customerCount = customerManager.count();
-		System.out.println();
-		System.out.println("Anzahl Customers: " + customerCount);
+		//System.out.println();
+		//System.out.println("Anzahl Customers: " + customerCount);
 
 		//Find all customers in repository and print their ids and first names
 		Iterable<Customer> allCustomers = customerManager.findAll();
-		System.out.println();
+		//System.out.println();
 		for (Customer customer : allCustomers) {
-			System.out.println(customer.getId() + " : " + customer.getFirstName());
+			//System.out.println(customer.getId() + " : " + customer.getFirstName());
 		}
 
 		//Find customer by id and print his/her first name
 		Optional<Customer> findById = customerManager.findById(bernd.getId());
-		System.out.println();
+		/*System.out.println();
 		System.out.println("Bernd wird gesucht und gefunden: ");
-		System.out.println(findById.get().getFirstName());
+		System.out.println(findById.get().getFirstName());*/
 
 		//Find multiple customers by id
 		String berndId = bernd.getId();
