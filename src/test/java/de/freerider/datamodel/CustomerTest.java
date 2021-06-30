@@ -1,8 +1,6 @@
-package de.freerider.model;
+package de.freerider.datamodel;
 
-import de.freerider.model.Customer;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.boot.test.context.SpringBootTest;
 

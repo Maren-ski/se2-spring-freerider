@@ -1,7 +1,8 @@
 package de.freerider.repository;
 
-import de.freerider.model.Customer;
+import de.freerider.datamodel.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
@@ -9,6 +10,7 @@ import java.util.Optional;
 
 
 @Component
+@Qualifier("CustomerRepository_Impl")
 class CustomerRepository implements CrudRepository<Customer, String> {
 	private final HashSet<Customer> customers = new HashSet<>();
 	private final IDGenerator idGen = new IDGenerator( "C", IDGenerator.IDTYPE.NUM, 6 );
@@ -55,10 +57,18 @@ class CustomerRepository implements CrudRepository<Customer, String> {
 				customers.add(customer);
 			}
 			else {
-				findById(customer.getId()).ifPresent(c -> {
+				Optional<Customer> co = findById(customer.getId());
+				if(co.isPresent()) {
+					Customer cust = co.get();
+					customers.remove(cust);
+					customers.add(customer);
+					//entities = (S) cust;
+				}
+				/*findById(customer.getId()).ifPresent(c -> {
 					customers.remove(c);
 					customers.add(customer);
-				});
+					entities = (S) customers;
+				});*/
 			}
 		}
 		return entities;
